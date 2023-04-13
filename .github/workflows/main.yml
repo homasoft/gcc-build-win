@@ -12,7 +12,7 @@ jobs:
          ls C:\msys64\usr\bin\
          ls C:\msys64\mingw64\bin\
          $ENV:Path="C:\msys64\mingw64\bin\;C:\msys64\usr\bin\;"+$ENV:Path
-         $ENV:MSYSTEM=MINGW64
+         $ENV:MSYSTEM="MINGW64"
          pacman -Syuu
          pacman -S --needed base-devel mingw-w64-x86_64-toolchain
          g++ -v
