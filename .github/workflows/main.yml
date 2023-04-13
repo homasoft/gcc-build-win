@@ -14,8 +14,7 @@ jobs:
          $ENV:Path="C:\msys64\mingw64\bin\;C:\msys64\usr\bin\;"+$ENV:Path
          $ENV:MSYSTEM=MINGW64
          pacman -Syuu
-         echo y > y
-         pacman -S --needed base-devel mingw-w64-x86_64-toolchain < y
+         pacman -S --needed base-devel mingw-w64-x86_64-toolchain
          g++ -v
       - name: artifact upload
         uses: actions/upload-artifact@v3.0.0
