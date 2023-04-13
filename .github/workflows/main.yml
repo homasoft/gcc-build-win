@@ -7,9 +7,12 @@ jobs:
       - name: artifact output
         run: |
          winget install MSYS2.MSYS2
-         "C:/msys64/msys2_shell.cmd" -defterm -here -no-start -mingw64
-         pacman -Suy
-         pacman -Sy --needed base-devel mingw-w64-x86_64-toolchain
+         set PATH=C:\msys64\mingw64\bin;C:\msys64\usr\local\bin;C:\msys64\usr\bin;C:\msys64\bin;%PATH%
+         set MSYSTEM=MINGW64
+         pacman -Syuu
+         echo y > y
+         pacman -S --needed base-devel mingw-w64-x86_64-toolchain < y
+         g++ -v
       - name: artifact upload
         uses: actions/upload-artifact@v3.0.0
         with:
