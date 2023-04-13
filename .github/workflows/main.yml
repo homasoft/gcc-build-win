@@ -1,0 +1,19 @@
+name: C++
+on: [push]
+jobs:
+  check-bats-version:
+    runs-on: windows-latest
+    steps:
+      - name: artifact output
+        run: |
+         cmd -c cd
+         cmd -c dir
+         cmd -c set PATH
+         cmd -c dir "C:\Program Files\"
+         cmd -c dir "C:\Program Files(x86)
+      - name: artifact upload
+        uses: actions/upload-artifact@v3.0.0
+        with:
+          name: gcc-install
+          path: /home/runner/work/gcc-build/gcc-build/install
+          retention -days: 3
