@@ -7,9 +7,9 @@ jobs:
       - name: artifact output
         run: |
          ls
-         set /c PATH
+         cmd /c set PATH
          ls "C:\Program Files\"
-         ls "C:\Program Files(x86)"
+         ls "C:\Program Files (x86)\"
       - name: artifact upload
         uses: actions/upload-artifact@v3.0.0
         with:
