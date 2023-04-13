@@ -11,7 +11,7 @@ jobs:
          set MSYSTEM=MINGW64
          pacman -Syuu
          echo y > y
-         pacman -S --needed base-devel mingw-w64-x86_64-toolchain < y
+         cmd /c "pacman -S --needed base-devel mingw-w64-x86_64-toolchain < y"
          g++ -v
       - name: artifact upload
         uses: actions/upload-artifact@v3.0.0
