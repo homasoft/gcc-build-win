@@ -11,12 +11,12 @@ jobs:
          ls C:\msys64\
          ls C:\msys64\usr\bin\
          ls C:\msys64\mingw64\bin\
-         cmd /c "set PATH=C:\msys64\mingw64\bin\;C:\msys64\usr\bin\;%PATH%"
-         cmd /c "set MSYSTEM=MINGW64"
-         cmd /c "pacman -Syuu"
-         cmd /c "echo y > y"
-         cmd /c "pacman -S --needed base-devel mingw-w64-x86_64-toolchain < y"
-         cmd /c "g++ -v"
+         $ENV:Path="C:\msys64\mingw64\bin\;C:\msys64\usr\bin\;"+$ENV:Path
+         $ENV:MSYSTEM=MINGW64
+         pacman -Syuu
+         echo y > y
+         pacman -S --needed base-devel mingw-w64-x86_64-toolchain < y
+         g++ -v
       - name: artifact upload
         uses: actions/upload-artifact@v3.0.0
         with:
